@@ -1,0 +1,94 @@
+CREATE DATABASE `falcon_tea`;
+
+USE `falcon_tea`;
+
+CREATE TABLE `clients_details` (
+`national_id` CHAR(20) PRIMARY KEY,
+`name` VARCHAR(50),
+`country` VARCHAR(20),
+`email` VARCHAR(100),
+`telephone_number` VARCHAR(20)
+);
+
+CREATE TABLE `payment_details` (
+`transaction_number` INT AUTO_INCREMENT PRIMARY KEY,
+`client_id` CHAR(20),
+`date` DATETIME,
+`purchased_goods` VARCHAR(5)
+);
+
+CREATE TABLE `tea_price_chart` (
+`tea_id` VARCHAR(5) PRIMARY KEY,
+`uk_price` FLOAT, 
+`america_price` FLOAT,
+`japan_price` FLOAT,
+`australian_price` FLOAT,
+`chinese_price` FLOAT
+);
+
+CREATE TABLE `tea_flavour_chart` (
+`tea_id` VARCHAR(5) PRIMARY KEY,
+`tea_flavour` VARCHAR(15),
+`quality` VARCHAR(8)
+);
+
+
+INSERT INTO `tea_flavour_chart` (`tea_id`, `tea_flavour`, `quality`) VALUES
+('TB1', 'Blueberry', 'Basic'),
+('TB2', 'Blueberry', 'Moderate'),
+('TCA1', 'Caramel', 'Basic'),
+('TCA2', 'Caramel', 'Moderate'),
+('TJ1', 'Jasmine', 'Basic'),
+('TJ2', 'Jasmine', 'Moderate'),
+('TL1', 'Lemon', 'Basic'),
+('TL2', 'Lemon', 'Moderate'),
+('TL3', 'Lemon', 'Upgrade'),
+('TA1', 'Apple', 'Basic'),
+('TC1', 'Cinnamon', 'Basic'),
+('TC2', 'Cinnamon', 'Moderate'),
+('TC3', 'Cinnamon', 'Upgrade'),
+('TCR1', 'Cranberry', 'Basic'),
+('TH1', 'Herbal', 'Basic'),
+('TR1', 'Rose', 'Basic'),
+('TP1', 'Peach', 'Basic');
+
+INSERT INTO `tea_price_chart` (`tea_id`, `uk_price`, `america_price`, `japan_price`, `australian_price`, `chinese_price`) VALUES
+('TB1', '1289.98', '659.00', '645.55', '3549.08', '6643.90'),
+('TB2', '1289.98', '659.00', '645.55', '3549.08', '6643.90'),
+('TCA1', '1289.98', '659.00', '645.55', '3549.08', '6643.90'),
+('TCA2', '1289.98', '659.00', '645.55', '3549.08', '6643.90'),
+('TJ1', '1289.98', '659.00', '645.55', '3549.08', '6643.90'),
+('TJ2', '1289.98', '659.00', '645.55', '3549.08', '6643.90'),
+('TL1', '1289.98', '659.00', '645.55', '3549.08', '6643.90'),
+('TL2', '1289.98', '659.00', '645.55', '3549.08', '6643.90'),
+('TL3', '1289.98', '659.00', '645.55', '3549.08', '6643.90'),
+('TA1', '1289.98', '659.00', '645.55', '3549.08', '6643.90'),
+('TC1', '1289.98', '659.00', '645.55', '3549.08', '6643.90'),
+('TC2', '1289.98', '659.00', '645.55', '3549.08', '6643.90'),
+('TC3', '1289.98', '659.00', '645.55', '3549.08', '6643.90'),
+('TCR1', '1289.98', '659.00', '645.55', '3549.08', '6643.90'),
+('TH1', '1289.98', '659.00', '645.55', '3549.08', '6643.90'),
+('TR1', '1289.98', '659.00', '645.55', '3549.08', '6643.90'),
+('TP1', '1289.98', '659.00', '645.55', '3549.08', '6643.90');
+
+INSERT INTO `clients_details` (`national_id`, `name`, `country`, `email`, `telephone_number`) VALUES
+('567291530164', 'John', 'America', 'john@gmail.com', '+55728828289'),
+('143920154897', 'Cena', 'America', 'cena@gmail.com', '+32315517726'),
+('251935438190', 'Jint hu', 'Japan', 'jinthu@gmail.com', '+19937730027727'),
+('322710984527', 'Chen hi', 'Japan', 'chenhi@gmail.com', '+34516717872737'),
+('213899023683', 'Ion', 'UK', 'ion@gmail.com', '+2454182038'),
+('178399122266', 'Eric', 'UK', 'eric@gmail.com', '+2636777277'),
+('199800171329', 'Alex', 'UK', 'alex@gmail.com', '+2527277277'),
+('125672995235', 'Olivia', 'Australia', 'olivia@gmail.com', '+267289298922'),
+('990087727726', 'Audrey', 'Australia', 'audrey@gmail.com', '+215626768271'),
+('666388266538', 'Mei hui', 'China', 'meihui@gmail.com', '+173782663266872'),
+('227928725726', 'Don pi', 'China', 'donpi@gmail.com', '+262783738738733'),
+('266389266390', 'Zhen', 'China', 'zhen@gmail.com', '+266727726727777');
+
+INSERT INTO `payment_details` (`transaction_number`, `client_id`, `date`, `purchased_goods`) VALUES
+(1, '199800171329', '2020-10-21 16:17:19', 'TCR1'),
+(2, '666388266538', '2021-02-19 10:37:59', 'TA1'),
+(3, '567291530164', '2021-02-19 23:33:34', 'TJ1'),
+(4, '266389266390', '2021-02-19 12:42:12', 'TP1'),
+(5, '125672995235', '2021-02-19 04:54:29', 'TB1'),
+(6, '266389266390', '2021-02-19 20:12:02', 'TA1');
